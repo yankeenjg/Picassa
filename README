@@ -1,2 +1,0 @@
-Name: Nicholas Gordon
-Project: Picassa
