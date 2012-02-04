@@ -18,13 +18,12 @@ public abstract class Expression
   
     protected static final Pattern DOUBLE_REGEX = Pattern.compile("(\\-?[0-9]+(\\.[0-9]+)?)|(\\.[0-9]+)");
     protected static final Pattern EXPRESSION_BEGIN_REGEX = Pattern.compile("\\(([a-z,A-Z,!,-,*,+,%,/,^]+)");
-    protected static final Pattern VARIABLE_REGEX = Pattern.compile("[xy]");
+    protected static final Pattern VARIABLE_REGEX = Pattern.compile("[xyt]");
     protected static final Pattern LET_REGEX = Pattern.compile("\\((let)");
     protected static final Pattern LET_VARIABLE_REGEX = Pattern.compile("[a-z,A-Z]+");
-
     
     public abstract Expression parseExpression(String myInput, Parser parser);
-    public abstract RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables);
+    public abstract RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables, double currentTime);
     public abstract boolean isThisType(String myInput, int myCurrentPosition);
 
     public void setCurrentPosition(String myInput, Parser parser, Pattern pattern) {

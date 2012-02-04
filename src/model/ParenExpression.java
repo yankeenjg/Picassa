@@ -6,9 +6,8 @@ import java.util.regex.Matcher;
 public abstract class ParenExpression extends Expression {
 
 	public abstract String getCommandName();
-	public abstract boolean isThisKindOfExpression(String commandName);
 	public abstract boolean isCorrectNumOperands(int numOperands);
-	public abstract RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables);
+	public abstract RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables, double currentTime);
 	public abstract Expression getExpression(ArrayList<Expression> operands);
 	
 	public boolean isThisType(String myInput, int myCurrentPosition) {
@@ -44,5 +43,9 @@ public abstract class ParenExpression extends Expression {
 			throw new ParserException("Unexpected number of operands for " + commandName);
 		}
 		return;
+	}
+	
+	public boolean isThisKindOfExpression(String command) {
+		return (command.contains(getCommandName()));
 	}
 }

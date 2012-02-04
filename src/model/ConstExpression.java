@@ -10,17 +10,13 @@ public class ConstExpression extends Expression {
 		myOperand1 = operand1;
 	}
 	
-	public boolean isThisKindOfExpression(String commandName) {
-		return commandName.contains(null);
-	}
-	
-	public RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables) {
+	public RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables, double currentTime) {
 		return myOperand1;
 	}
 	
 	public boolean isThisType(String myInput, int myCurrentPosition) {
 		 Matcher doubleMatcher = DOUBLE_REGEX.matcher(myInput.substring(myCurrentPosition));
-	        return doubleMatcher.lookingAt();
+	     return doubleMatcher.lookingAt();
 	}
 	
 	public Expression parseExpression(String myInput, Parser parser) {

@@ -52,9 +52,9 @@ public class LetExpression extends Expression {
 		return new LetExpression(variableName, value, operandList);
 	}
 	
-	public RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables) {
+	public RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables, double currentTime) {
 		letVariables.put(myVariableName, myValue);
-		RGBColor result = myOperand1.evaluate(evalX, evalY, letVariables);
+		RGBColor result = myOperand1.evaluate(evalX, evalY, letVariables, currentTime);
 		letVariables.remove(myVariableName);
 		return result;		
 	}

@@ -2,6 +2,39 @@ package model;
 
 import java.util.ArrayList;
 
+import parenExpressions.AbsExpression;
+import parenExpressions.AtanExpression;
+import parenExpressions.AverageExpression;
+import parenExpressions.CeilingExpression;
+import parenExpressions.ClampExpression;
+import parenExpressions.ColorExpression;
+import parenExpressions.ConditionalExpression;
+import parenExpressions.CosExpression;
+import parenExpressions.DivExpression;
+import parenExpressions.ExpExpression;
+import parenExpressions.FloorExpression;
+import parenExpressions.LogExpression;
+import parenExpressions.MaxExpression;
+import parenExpressions.MinExpression;
+import parenExpressions.ModExpression;
+import parenExpressions.MultExpression;
+import parenExpressions.NegExpression;
+import parenExpressions.PerlinBWExpression;
+import parenExpressions.PerlinColorExpression;
+import parenExpressions.PlusExpression;
+import parenExpressions.ProductExpression;
+import parenExpressions.RandomExpression;
+import parenExpressions.RgbToYCrCbExpression;
+import parenExpressions.SinExpression;
+import parenExpressions.SubExpression;
+import parenExpressions.SumExpression;
+import parenExpressions.TanExpression;
+import parenExpressions.WrapExpression;
+import parenExpressions.YCrCbtoRGBExpression;
+import variableExpressions.TimeVarExpression;
+import variableExpressions.XVarExpression;
+import variableExpressions.YVarExpression;
+
 
 /**
  * Parses a string into an expression tree based on rules for arithmetic.
@@ -22,9 +55,12 @@ public class Parser
     private String myInput;
     
     private void makeExpressionList() {
-    	
-       	ExpressionTypes.add(XVarExpression.getFactory());
+    	//LetExpression/LetVariable come first so as to override X,Y,T if necessary.
+    	ExpressionTypes.add(XVarExpression.getFactory());
     	ExpressionTypes.add(YVarExpression.getFactory());
+    	ExpressionTypes.add(TimeVarExpression.getFactory());
+    	ExpressionTypes.add(LetExpression.getFactory());
+    	ExpressionTypes.add(LetVariable.getFactory());
     	ExpressionTypes.add(ConstExpression.getFactory());
     	ExpressionTypes.add(PlusExpression.getFactory());
     	ExpressionTypes.add(SubExpression.getFactory());
@@ -55,8 +91,6 @@ public class Parser
     	ExpressionTypes.add(MaxExpression.getFactory());
     	ExpressionTypes.add(MinExpression.getFactory());
     	ExpressionTypes.add(ConditionalExpression.getFactory());
-    	ExpressionTypes.add(LetExpression.getFactory());
-    	ExpressionTypes.add(LetVariable.getFactory());
     }
     
     /**

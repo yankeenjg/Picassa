@@ -22,9 +22,9 @@ public class LetVariable extends Expression {
 		return new LetVariable(myStringName);
 	}
 
-	public RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables) {
+	public RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables, double currentTime) {
 		if (letVariables.containsKey(myStringName)) {
-			return (letVariables.get(myStringName)).evaluate(evalX, evalY, letVariables);
+			return (letVariables.get(myStringName)).evaluate(evalX, evalY, letVariables, currentTime);
 		}
 		throw new ParserException("Unexpected input " + myStringName);
 	}

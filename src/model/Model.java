@@ -45,7 +45,7 @@ public class Model
             for (int imageX = 0; imageX < size.width; imageX++) {
                 double evalX = imageToDomainScale(imageX, size.width);
                 letVariables = new TreeMap<String, Expression>();
-                result.setColor(imageX, imageY, toEval.evaluate(evalX, evalY, letVariables).toJavaColor());
+                result.setColor(imageX, imageY, toEval.evaluate(evalX, evalY, letVariables, myCurrentTime).toJavaColor());
             }
         }
         return result;
