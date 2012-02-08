@@ -8,7 +8,6 @@ import model.ParenExpression;
 import model.RGBColor;
 
 public class ConditionalExpression extends ParenExpression{
-	
 	private Expression myOperand1;
 	private Expression myOperand2;
 	private Expression myOperand3;

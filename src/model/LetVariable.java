@@ -12,7 +12,7 @@ public class LetVariable extends Expression {
 	
 	public String getVariableName(String myInput, Parser parser) {
 		Matcher letMatcher = LET_VARIABLE_REGEX.matcher(myInput);
-		letMatcher.find(parser.myCurrentPosition);
+		letMatcher.find(parser.getCurrentPosition());
 		return letMatcher.group();
 	}
 	

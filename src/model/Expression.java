@@ -28,8 +28,8 @@ public abstract class Expression
 
     public void setCurrentPosition(String myInput, Parser parser, Pattern pattern) {
 		Matcher expMatcher = pattern.matcher(myInput);
-	    expMatcher.find(parser.myCurrentPosition);
-	    parser.myCurrentPosition = expMatcher.end();
+	    expMatcher.find(parser.getCurrentPosition());
+	    parser.setPosition(expMatcher.end());
 	}
     
     /**

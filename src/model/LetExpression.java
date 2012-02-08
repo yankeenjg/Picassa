@@ -22,7 +22,7 @@ public class LetExpression extends Expression {
 	
 	public String getVariableName(String myInput, Parser parser) {
 		Matcher letMatcher = LET_VARIABLE_REGEX.matcher(myInput);
-		letMatcher.find(parser.myCurrentPosition);
+		letMatcher.find(parser.getCurrentPosition());
 		return letMatcher.group();
 	}
 	
@@ -36,7 +36,8 @@ public class LetExpression extends Expression {
 			operandList.add(parser.parseExpression(parser));
 			parser.skipWhiteSpace();
 		}
-		parser.myCurrentPosition++;
+		int currentPosition = parser.getCurrentPosition() + 1;
+		parser.setPosition(currentPosition);
 		return operandList;
 	} 
 	

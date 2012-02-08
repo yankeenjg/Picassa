@@ -1,7 +1,7 @@
 package model;
 
 public class ExpressionFactory {
-	Expression myExpression;
+	private Expression myExpression;
 	
 	public ExpressionFactory(Expression expression) {
 		myExpression = expression;

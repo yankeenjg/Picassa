@@ -21,9 +21,9 @@ public class ConstExpression extends Expression {
 	
 	public Expression parseExpression(String myInput, Parser parser) {
 		Matcher doubleMatcher = DOUBLE_REGEX.matcher(myInput);
-		doubleMatcher.find(parser.myCurrentPosition);
+		doubleMatcher.find(parser.getCurrentPosition());
 		String numberMatch = myInput.substring(doubleMatcher.start(), doubleMatcher.end());
-		parser.myCurrentPosition = doubleMatcher.end();
+		parser.setPosition(doubleMatcher.end());
 		double grayValue = Double.parseDouble(numberMatch);
 		return new ConstExpression(new RGBColor(grayValue));
 	}

@@ -21,7 +21,7 @@ public class MultExpression extends ParenExpression{
 		return numOperands == 2;
 	}
 	
-	@Override
+	
 	public boolean isThisKindOfExpression(String commandName) {
 		return (commandName.contains("mul") || commandName.contains("*"));
 	}

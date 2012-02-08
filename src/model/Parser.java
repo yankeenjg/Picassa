@@ -51,8 +51,16 @@ public class Parser
 
     private ArrayList<ExpressionFactory> ExpressionTypes = new ArrayList<ExpressionFactory>();
     // state of the parser
-    public int myCurrentPosition;
+    private int myCurrentPosition;
     private String myInput;
+    
+    public int getCurrentPosition() {
+    	return myCurrentPosition;
+    }
+    
+    public void setPosition(int currentPosition) {
+    	myCurrentPosition = currentPosition;
+    }
     
     private void makeExpressionList() {
     	//LetExpression/LetVariable come first so as to override X,Y,T if necessary.

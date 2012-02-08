@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 
-public abstract class ParenExpression extends Expression {
-
+public abstract class ParenExpression extends Expression { 
 	public abstract String getCommandName();
 	public abstract boolean isCorrectNumOperands(int numOperands);
 	public abstract RGBColor evaluate(double evalX, double evalY, TreeMap<String, Expression> letVariables, double currentTime);
@@ -26,7 +25,8 @@ public abstract class ParenExpression extends Expression {
 			operandList.add(parser.parseExpression(parser));
 			parser.skipWhiteSpace();
 		}
-		parser.myCurrentPosition++;
+		int currentPosition = parser.getCurrentPosition() + 1;
+		parser.setPosition(currentPosition);
 		return operandList;
 	}
 	
